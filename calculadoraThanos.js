@@ -10,7 +10,7 @@ Considerando que o ano tem 360 dias e cada mês 30 dias.
 valores de entrada ( 395 e 130) 
 */
 
-const dataEstimada = chegadaThanos(1958);
+const dataEstimada = chegadaThanos(1958); // aqui você insere o número de dias
 
 console.log(dataEstimada);
 let diasRestantes  = entrada/30 * 30 -entrada;
