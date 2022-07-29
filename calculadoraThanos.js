@@ -10,19 +10,28 @@
 
 
 
-const dataEstimada = chegadaThanos(391);
+const dataEstimada = chegadaThanos(30);
+
+    
 
 console.log(dataEstimada);
 let diasRestantes  = dias/30 * 30 -dias;
 function chegadaThanos(dias){
-    
-    const mesValor = 30;
-    let qtdeMeses = Math.floor(dias/mesValor);
-    let diasRestantes  = (qtdeMeses* mesValor) - (dias);
 
+    const mesValor = 30;
     const anoValor = 360;
-    let qtdeAnos = Math.floor(dias/anoValor);
-    let mesesRestantes = (((qtdeAnos) * (anoValor)) - (dias)) / (mesValor);
+    const qtdeMesesAno = 12;
+    
+    
+
+        let qtdeMeses = Math.floor(dias/mesValor);
+        let diasRestantes  = (qtdeMeses* mesValor) - (dias);
+
+    
+        let qtdeAnos = Math.floor(dias/anoValor);
+        let mesesRestantes = (((qtdeAnos) * (anoValor)) - (dias)) / (mesValor);
+
+    
         
            
 
@@ -30,11 +39,12 @@ function chegadaThanos(dias){
         return 'Não é um número !';
     if (dias < mesValor)
         return "A nave do Thanos irá passar na atmosfera em " + (dias) + ' dia(as)';
-    if ((dias/ mesValor) < 12)
+    if ((dias/ mesValor) < qtdeMesesAno)
         return "A nave do Thanos irá passar na atmosfera em " + (qtdeMeses) + " mês(es) e " + (diasRestantes*-1) + " dia(as) ";
     else (dias > anoValor)
         return "A nave do Thanos irá passar na atmosfera em " + Math.floor(dias/ anoValor) + ' ano(os)' + Math.floor(mesesRestantes*-1) + " mês(es) e " + (diasRestantes*-1) + " dia(as) ";
 }
+
 
 
 
