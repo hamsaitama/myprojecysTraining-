@@ -1,4 +1,3 @@
-
 // Thanos está vindo para Terra, para não serem pegos
 // desprevinidos, os Vingadores, precisam de um programa que
 // leia o número de dias que a nave dele irá passar pela atmosfera
@@ -10,12 +9,12 @@
 
 
 
-const dataEstimada = chegadaThanos(30);
+const dataEstimada = chegadaThanos(0);
 
     
 
 console.log(dataEstimada);
-let diasRestantes  = dias/30 * 30 -dias;
+
 function chegadaThanos(dias){
 
     const mesValor = 30;
@@ -29,21 +28,42 @@ function chegadaThanos(dias){
 
     
         let qtdeAnos = Math.floor(dias/anoValor);
-        let mesesRestantes = (((qtdeAnos) * (anoValor)) - (dias)) / (mesValor);
+        let mesesRestantes = ((qtdeAnos* anoValor) - dias) / (mesValor);
 
     
         
            
 
-    if (typeof dias !== 'number')
+    if (typeof dias !== 'number'){
         return 'Não é um número !';
-    if (dias < mesValor)
+    }if (dias < 0) {
+        return "Infelizmente o 'Equilibrio' já foi estabelecido e metade da população mundial desapareceu.";
+    
+    }if (dias == 0){
+        return "Fuja ! O Thanos irá chegar a qualquer momento !"
+    
+    }if (dias < mesValor){
         return "A nave do Thanos irá passar na atmosfera em " + (dias) + ' dia(as)';
-    if ((dias/ mesValor) < qtdeMesesAno)
+
+    }if ((dias/mesValor) < (qtdeMesesAno) && (diasRestantes == 0)) {
+        return "A nave do Thanos irá passar na atmosfera em " + (qtdeMeses) + " mês(es) ";
+
+    } else if  ((dias/ mesValor) < qtdeMesesAno) {
         return "A nave do Thanos irá passar na atmosfera em " + (qtdeMeses) + " mês(es) e " + (diasRestantes*-1) + " dia(as) ";
-    else (dias > anoValor)
-        return "A nave do Thanos irá passar na atmosfera em " + Math.floor(dias/ anoValor) + ' ano(os)' + Math.floor(mesesRestantes*-1) + " mês(es) e " + (diasRestantes*-1) + " dia(as) ";
+    
+    } else if  ((qtdeAnos >= 1) && (qtdeAnos* anoValor) - dias == 0)   {
+        return "A nave do Thanos irá passar na atmosfera em " + Math.floor(dias/ anoValor) + ' ano(os)';
+
+    } else if  ((qtdeAnos >= 1) && (qtdeMesesAno* qtdeAnos - qtdeMeses == 0)) {
+        return "A nave do Thanos irá passar na atmosfera em " + Math.floor(dias/ anoValor) + ' ano(os) e ' + (diasRestantes*-1) + " dia(as) ";
+
+    } else if  ((qtdeAnos >= 1) && (diasRestantes == 0) ) {  
+        return "A nave do Thanos irá passar na atmosfera em " + Math.floor(dias/ anoValor) + ' ano(os) e ' + (mesesRestantes*-1) + " mês(es) ";
+
+    } else
+        return "A nave do Thanos irá passar na atmosfera em " + Math.floor(dias/ anoValor) + ' ano(os) e ' + Math.floor(mesesRestantes*-1) + " mês(es) e " + (diasRestantes*-1) + " dia(as) ";
 }
+
 
 
 
