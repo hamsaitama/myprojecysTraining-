@@ -31,7 +31,7 @@ var estdVizAL = estadosNordestinos[7][1][9];
 var estdVizSE = estadosNordestinos[0][1]; */
 
 
-var search = ('Fortaleza'); /* inserir o a valor da chave, ex: nome do Amigo, Cidade ou Estado */
+var search = 'Alagoas'; /*('Piauí');  inserir o a valor da chave, ex: nome do Amigo, Cidade ou Estado */
 
 var infosMA = ['Piauí'];
 var infosPI = ['Maranhão', 'Ceará', 'Pernambuco', 'Bahia'];
@@ -95,18 +95,8 @@ const amigos = [
     }
 
   
+    
   }
   
-    
 
-
-console.log(amigos.find(acharAmgs));
-
-
-
-
-
-
-
-
-
+console.log(amigos.filter(acharAmgs));
