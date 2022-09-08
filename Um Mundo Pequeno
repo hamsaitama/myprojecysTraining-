@@ -31,7 +31,7 @@ var estdVizAL = estadosNordestinos[7][1][9];
 var estdVizSE = estadosNordestinos[0][1]; */
 
 
-var search = ('Fortaleza');
+var search = ('Fortaleza'); /* inserir o a valor da chave, ex: nome do Amigo, Cidade ou Estado */
 
 var infosMA = ['Piauí'];
 var infosPI = ['Maranhão', 'Ceará', 'Pernambuco', 'Bahia'];
@@ -43,8 +43,8 @@ var infosRN = ['Ceará', 'Paraíba'];
 var infosAL = ['Pernambuco', 'Bahia', 'Sergipe'];
 var infosSE = ['Bahia', 'Alagoas'];*/
 
-
-const amigos = [
+/* array contendo as informações */
+const amigos = [ 
   { nome:'Elaine', Tel: '(' + 86 + ')' +  98292+ '-' + 6709, cidade: 'Teresina', estado: infosMA[0]},
 
   { nome:'Igor', Tel: '(' + 98 + ')' +  99880+ '-' + 0245, estado: infosMA[0], cidade: 'São Luís', estado: infosPI[0]},
@@ -80,7 +80,7 @@ const amigos = [
   { nome:'Gabriel', Tel: '(' + 71 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Salvador', estado: infosPE[3]},
 
   { nome:'Liz', Tel: '(' + 82 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Arapiraca', estado: infosPE[4]}];
-
+/* função de busca dentro da array*/
   function acharAmgs(id){
     if( id.nome === search){
       return amigos 
