@@ -1,14 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treinamento JavaScript</title>
-</head>
-<body>
-    <script src=".//script.js"></script>
+/* Um mundo pequeno
 
-    <H1>Um Mundo Pequeno</H1>
-</body>
-</html>
+Como um programador muito popular, você conhece muitas pessoas em seu país. 
+Como você viaja muito, você decidiu que seria muito útil de ter um programa
+ que te dissesse quais de seus amigos estão mais próximos baseado em qual 
+ amigo você está atualmente visitando.
+
+Cada um de seus amigos vive em uma posição específica (latitude e longitude) - 
+para os propósitos deste problema o mundo é plano e a latitude e a longitude 
+são coordenadas cartesianas em um plano - e você consegue identificá-los de 
+alguma maneira. Também cada amigo mora em uma posição diferente (dois amigos 
+nunca estão na mesma latitude e longitude).
+
+Escreva um programa que receba a localização de cada um dos seus amigo e, 
+para cada um deles, você indique quais são os outros três amigos mais próximos a ele.
+
+
+
+const estadosNordestinos = {Estados:'Alagoas (AL), Bahia (BA), Ceará (CE), Espírito Santo (ES),Rio Grande do Norte (RN), Maranhão (MA), Paraíba (PB), Pernambuco (PE), Piauí (PI), Sergipe (SE)'
+};
+
+/*
+var estdVizMA = estadosNordestinos[8];
+var estdVizPI = estadosNordestinos[1,2,5][7];
+var estdVizBa = estadosNordestinos[7][8][0][9];
+var estdVizCE = estadosNordestinos[8][7][6][4];
+var estdVizPE = estadosNordestinos[6][2][8][1][0];
+var estdVizPB = estadosNordestinos[4][2][7];
+var estdVizRN = estadosNordestinos[2][6];
+var estdVizAL = estadosNordestinos[7][1][9];
+var estdVizSE = estadosNordestinos[0][1]; */
+
+
+var search = ('Fortaleza');
+
+var infosMA = ['Piauí'];
+var infosPI = ['Maranhão', 'Ceará', 'Pernambuco', 'Bahia'];
+var infosBA = ['Piauí', 'Pernambuco' , 'Alagoas', 'Sergipe'];
+var infosCE = ['Piauí', 'Pernambuco', 'Paraíba', 'Rio Grande do Norte'];
+var infosPE = ['Paraíba', 'Ceará', 'Piauí', 'Bahia', 'Alagoas'];
+/*var infosPB = ['Rio Grande do Norte', 'Ceará', 'Pernambuco'];
+var infosRN = ['Ceará', 'Paraíba'];
+var infosAL = ['Pernambuco', 'Bahia', 'Sergipe'];
+var infosSE = ['Bahia', 'Alagoas'];*/
+
+
+const amigos = [
+  { nome:'Elaine', Tel: '(' + 86 + ')' +  98292+ '-' + 6709, cidade: 'Teresina', estado: infosMA[0]},
+
+  { nome:'Igor', Tel: '(' + 98 + ')' +  99880+ '-' + 0245, estado: infosMA[0], cidade: 'São Luís', estado: infosPI[0]},
+
+  { nome:'Filipe', Tel: '(' + 85 + ')' +  99218+ '-' + 8348, estado: infosMA[0], cidade: 'Fortaleza',estado: infosPI[1]},
+
+  { nome:'Leandro', Tel: '(' + 81 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Igarassu', estado: infosPI[2]},
+  
+  { nome:'Davi', Tel: '(' + 75 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Feira de Santana', estado: infosPI[3]},
+
+  { nome:'Sônia', Tel: '(' + 89 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Picos', estado: infosBA[0]},
+
+  { nome:'Sara', Tel: '(' + 87 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Petrolina', estado: infosBA[1]},
+
+  { nome:'Lorenzo', Tel: '(' + 82 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Maceió', estado: infosBA[2]},
+
+  { nome:'Beatriz', Tel: '(' + 79 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Aracaju', estado: infosBA[3]},
+
+  { nome:'Giovana', Tel: '(' + 86 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Parnaíba', estado: infosCE[0]},
+
+  { nome:'Evelin', Tel: '(' + 81 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Recife', estado: infosCE[1]},
+
+  { nome:'Pedro', Tel: '(' + 83 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'João Pessoa', estado: infosCE[2]},
+
+  { nome:'Larissa', Tel: '(' + 84 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Natal', estado: infosCE[3]},
+
+  { nome:'Sebastiana', Tel: '(' + 83 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Patos', estado: infosPE[0]},
+
+  { nome:'Mirela', Tel: '(' + 85 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Maracanaú', estado: infosPE[1]},
+
+  { nome:'Leonardo', Tel: '(' + 86 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Altos', estado: infosPE[2]},
+
+  { nome:'Gabriel', Tel: '(' + 71 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Salvador', estado: infosPE[3]},
+
+  { nome:'Liz', Tel: '(' + 82 + ')' +  98272+ '-' + 6785, estado: infosMA[0], cidade: 'Arapiraca', estado: infosPE[4]}];
+
+  function acharAmgs(id){
+    if( id.nome === search){
+      return amigos 
+    }
+
+    if( id.estado === search){
+      return amigos
+    }
+
+    if( id.cidade === search){
+      return amigos
+    }
+
+  
+  }
+  
+    
+
+
+console.log(amigos.find(acharAmgs));
+
+
+
+
+
+
+
+
+
